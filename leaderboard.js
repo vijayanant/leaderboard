@@ -20,7 +20,17 @@ if(Meteor.isClient) {
           var playerId = this._id
           Session.set('selectedPlayer', playerId)
           var selectedPlayer = Session.get('selectedPlayer')
-          console.log(selectedPlayer);
+          //console.log(selectedPlayer);
+      },
+      'click .increment': function() {
+          selectedPlayer = Session.get('selectedPlayer');
+          //console.log(selectedPlayer);
+          PlayerList.update(selectedPlayer, {$inc: {score: 5}})
+      },
+      'click .decrement': function() {
+          selectedPlayer = Session.get('selectedPlayer');
+          //console.log(selectedPlayer);
+          PlayerList.update(selectedPlayer, {$inc: {score:-5}})
       }
   })
 }
