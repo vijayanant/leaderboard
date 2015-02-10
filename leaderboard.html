@@ -2,6 +2,7 @@
 <title > LeaderBoard </title>
 </head>
 <body> 
+    {{> loginButtons}}
     <h1> LeaderBoard </h1>
     {{> leaderboard}}
     {{> addPlayerForm}}
@@ -20,7 +21,6 @@
     </tr>
     {{/each}}
 </table>
-
 {{#if showSelectedPlayer}}
 <input type="button" class="increment" value="Give 5 Points">
 <input type="button" class="decrement" value="Take 5 Points">
@@ -30,8 +30,10 @@
 </template>
 
 <template name="addPlayerForm">
+{{#if currentUser}}
   <form> 
       <input type="text" name="playerName">
       <input type="submit" value="add Player">
   </form>
+{{/if}}
 </template>
