@@ -36,8 +36,10 @@ if(Meteor.isClient) {
     },
     'click .remove': function() {
         selectedPlayer = Session.get('selectedPlayer');
-        //console.log(selectedPlayer);
-        PlayerList.remove(selectedPlayer)
+        var yes = confirm('Are you sure')
+        if (yes) {
+          PlayerList.remove(selectedPlayer)
+        }
     }
   });
 
@@ -50,7 +52,7 @@ if(Meteor.isClient) {
             name: playerName,
             score: 0,
         })
-        event.target.playerName.value = ''
+        event.target.playerName.value = null
     }
   })
 }
