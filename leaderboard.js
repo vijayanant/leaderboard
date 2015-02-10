@@ -18,22 +18,30 @@ if(Meteor.isClient) {
   });
 
   Template.leaderboard.events({
-      'click .player' : function() {
-          var playerId = this._id
-          Session.set('selectedPlayer', playerId)
-          var selectedPlayer = Session.get('selectedPlayer')
-          //console.log(selectedPlayer);
-      },
-      'click .increment': function() {
-          selectedPlayer = Session.get('selectedPlayer');
-          //console.log(selectedPlayer);
-          PlayerList.update(selectedPlayer, {$inc: {score: 5}})
-      },
-      'click .decrement': function() {
-          selectedPlayer = Session.get('selectedPlayer');
-          //console.log(selectedPlayer);
-          PlayerList.update(selectedPlayer, {$inc: {score:-5}})
-      }
+    'click .player' : function() {
+        var playerId = this._id
+        Session.set('selectedPlayer', playerId)
+        var selectedPlayer = Session.get('selectedPlayer')
+        //console.log(selectedPlayer);
+    },
+    'click .increment': function() {
+        selectedPlayer = Session.get('selectedPlayer');
+        //console.log(selectedPlayer);
+        PlayerList.update(selectedPlayer, {$inc: {score: 5}})
+    },
+    'click .decrement': function() {
+        selectedPlayer = Session.get('selectedPlayer');
+        //console.log(selectedPlayer);
+        PlayerList.update(selectedPlayer, {$inc: {score:-5}})
+    }
+  });
+
+  Template.addPlayerForm.events({
+    'submit form': function(event) {
+        event.preventDefault()
+        console.log('form submitted');
+        console.log(event.type);
+    }
   })
 }
 
