@@ -4,9 +4,8 @@ if(Meteor.isClient) {
   console.log('Hello Client! -from console log');
   Template.leaderboard.helpers({
     'player' : function() {
-      return "Some Other Text from Leaderboared.helpers.player";
-    },
-    'manager' : "An inspirational quote from Team Manager"
+      return PlayerList.find()
+    }
   });
 }
 
