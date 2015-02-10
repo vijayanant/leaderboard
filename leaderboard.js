@@ -4,7 +4,7 @@ if(Meteor.isClient) {
   console.log('Hello Client! -from console log');
   Template.leaderboard.helpers({
     'player' : function() {
-      return PlayerList.find()
+      return PlayerList.find({}, {sort:{score: -1, name: 1}})
     },
     'selectedClass' : function () {
         var playerId = this._id
