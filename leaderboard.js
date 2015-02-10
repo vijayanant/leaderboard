@@ -4,8 +4,7 @@ if(Meteor.isClient) {
   Template.leaderboard.helpers({
     'player' : function() {
         var currentUserId = Meteor.userId()
-      return PlayerList.find({createdBy: currentUserId},
-                             {sort:{score: -1, name: 1}})
+      return PlayerList.find({}, {sort:{score: -1, name: 1}})
     },
     'selectedClass' : function () {
         var playerId = this._id
@@ -63,6 +62,6 @@ if(Meteor.isClient) {
 
 if (Meteor.isServer) {
   Meteor.publish('thePlayers', function(){
-    return PlayerList.find()});
-  console.log(PlayerList.find().fetch());
+    var currentUserId = this.userId;
+    return PlayerList.find({createdBy: currentUserId})});
 }
