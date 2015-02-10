@@ -2,7 +2,9 @@ PlayerList = new Mongo.Collection('players')
 if(Meteor.isClient) {
   Template.leaderboard.helpers({
     'player' : function() {
-      return PlayerList.find({}, {sort:{score: -1, name: 1}})
+        var currentUserId = Meteor.userId()
+      return PlayerList.find({createdBy: currentUserId},
+                             {sort:{score: -1, name: 1}})
     },
     'selectedClass' : function () {
         var playerId = this._id
@@ -47,10 +49,11 @@ if(Meteor.isClient) {
     'submit form': function(event) {
         event.preventDefault()
         var playerName = event.target.playerName.value;
-        console.log(playerName);
+        var currentUserId = Meteor.userId();
         PlayerList.insert({
             name: playerName,
             score: 0,
+            createdBy: currentUserId
         })
         event.target.playerName.value = null
     }
