@@ -50,6 +50,7 @@ if(Meteor.isClient) {
             name: playerName,
             score: 0,
         })
+        event.target.playerName.value = ''
     }
   })
 }
