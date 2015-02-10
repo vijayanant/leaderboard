@@ -1,8 +1,30 @@
 /* CSS declarations go here */
+body {
+    font-family:Avenir,Serif;
+    font-size: 20px;
+}
 .selected {
   background-color: yellow;
   font-family: Optima, Serif;
-  font-size:22px
+  font-size:22px;
 }
 
+table, th, td {
+    text-align: center;
+    height: 32px;
+    width:300px;
+    border: 1px;
+    border-style: hidden;
+    border-spacing: 50px;
+    border-color: pink;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: grey;
+}
+
+tr {
+    border-style: solid;
+}
 

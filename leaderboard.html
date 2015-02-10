@@ -7,10 +7,16 @@
 </body>
 
 <template name="leaderboard">
-<ul>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Score</th>
+    </tr>
     {{#each player}}
-    <li class="player {{selectedClass}}"> {{name}} : {{score}} </li>
+    <tr class="player {{selectedClass}}">
+        <td>{{name}} </td> <td> {{score}} </td>
+    </tr>
     {{/each}}
-</ul>
+</table>
 </template>
 
