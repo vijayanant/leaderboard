@@ -33,6 +33,11 @@ if(Meteor.isClient) {
         selectedPlayer = Session.get('selectedPlayer');
         //console.log(selectedPlayer);
         PlayerList.update(selectedPlayer, {$inc: {score:-5}})
+    },
+    'click .remove': function() {
+        selectedPlayer = Session.get('selectedPlayer');
+        //console.log(selectedPlayer);
+        PlayerList.remove(selectedPlayer)
     }
   });
 
