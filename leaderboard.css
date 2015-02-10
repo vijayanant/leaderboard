@@ -4,19 +4,19 @@ body {
     font-size: 20px;
 }
 .selected {
-  background-color: yellow;
+  background-color: darkkhaki;
   font-family: Optima, Serif;
-  font-size:22px;
+  font-size:24px;
 }
 
 table, th, td {
     text-align: center;
-    height: 32px;
-    width:300px;
+    height: 28px;
+    width:350px;
     border: 1px;
-    border-style: hidden;
+    border-style: solid;
     border-spacing: 50px;
-    border-color: pink;
+    border-color: purple;
     border-collapse: collapse;
 }
 
@@ -25,6 +25,6 @@ th {
 }
 
 tr {
-    border-style: solid;
+    /*border-style: ridge ;*/
 }
 
